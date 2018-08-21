@@ -10,7 +10,7 @@ static DEPLOY_SH: &str = include_str!("../templates/before_deploy.sh");
 static INSTALL: &str = include_str!("../templates/install.sh");
 static SCRIPT: &str = include_str!("../templates/script.sh");
 static TRAVIS: &str = include_str!("../templates/travis.yml");
-static APPVEYOR: &str = include_str!("../templates/appveyor.yml");
+// static APPVEYOR: &str = include_str!("../templates/appveyor.yml");
 
 /// GitHub template struct.
 pub struct Templates {
@@ -21,9 +21,9 @@ pub struct Templates {
 impl Templates {
   /// Create a new instance. Creates a `scripts/` directory if it doesn't exist
   /// already.
-  pub fn new(mut dir: PathBuf, name: String) -> ::Result<Self> {
+  pub fn new(dir: PathBuf, name: String) -> ::Result<Self> {
     let scripts_dir = dir.join("scripts");
-    mkdirp(&dir).context(::ErrorKind::Other)?;
+    mkdirp(&scripts_dir).context(::ErrorKind::Other)?;
     Ok(Self { name, dir })
   }
 
