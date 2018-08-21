@@ -7,6 +7,7 @@ Cross compilation template generator. Automated version of
 
 - [Documentation][8]
 - [Crates.io][2]
+- [Releases][9]
 
 ## Usage
 ```txt
@@ -45,3 +46,4 @@ $ cargo add crossgen
 [6]: https://crates.io/crates/crossgen
 [7]: https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square
 [8]: https://docs.rs/crossgen
+[9]: https://github.com/yoshuawuyts/crossgen/releases
