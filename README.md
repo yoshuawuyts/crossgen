@@ -9,6 +9,23 @@ Cross compilation template generator.
 
 ## Usage
 ```txt
+crossgen 0.1.0
+Cross compilation template generator
+
+USAGE:
+    crossgen [FLAGS] [OPTIONS] [dir]
+
+FLAGS:
+    -h, --help         Prints help information
+    -P, --pretty       Enable pretty printing.
+    -V, --version      Prints version information
+    -v, --verbosity    Pass many times for more log output
+
+OPTIONS:
+    -n, --name <name>    Project name. Defaults to target directory name
+
+ARGS:
+    <dir>    Target directory [default: .]
 ```
 
 ## Installation
