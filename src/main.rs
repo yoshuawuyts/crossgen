@@ -5,20 +5,22 @@
 
 #[macro_use]
 extern crate human_panic;
-extern crate structopt;
-#[macro_use]
-extern crate log;
 extern crate crossgen;
 extern crate exitfailure;
+extern crate log;
+extern crate structopt;
 
 use crossgen::Cli;
-use structopt::StructOpt;
 use exitfailure::ExitFailure;
+use structopt::StructOpt;
 
 fn main() -> Result<(), ExitFailure> {
   setup_panic!();
   let args = Cli::from_args();
   args.log(env!("CARGO_PKG_NAME"))?;
-  info!("program started");
+  let dir = args.dir()?;
+  let name = args.name()?;
+  let templ = crossgen::Templates::new(dir, name)?;
+  templ.write_all()?;
   Ok(())
 }

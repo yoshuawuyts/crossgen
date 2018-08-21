@@ -1,5 +1,3 @@
-extern crate mkdirp;
-
 use std::path::PathBuf;
 use std::str::FromStr;
 use structopt::{clap::Shell, StructOpt};

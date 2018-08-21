@@ -22,6 +22,9 @@ pub type Result<T> = result::Result<T, Error>;
 /// [`Error`]: std.struct.Error.html
 #[derive(Debug, Fail)]
 pub enum ErrorKind {
+  /// An error caused by log failure.
+  #[fail(display = "An error occurred setting up the logger.")]
+  Log,
   /// Any error not part of this list.
   #[fail(display = "Generic error.")]
   Other,

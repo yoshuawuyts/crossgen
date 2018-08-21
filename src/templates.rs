@@ -5,8 +5,8 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::PathBuf;
 
-static DEPLOY_PS1: &str = include_str!("../templates/deploy.ps1");
-static DEPLOY_SH: &str = include_str!("../templates/deploy.sh");
+static DEPLOY_PS1: &str = include_str!("../templates/before_deploy.ps1");
+static DEPLOY_SH: &str = include_str!("../templates/before_deploy.sh");
 static INSTALL: &str = include_str!("../templates/install.sh");
 static SCRIPT: &str = include_str!("../templates/script.sh");
 static TRAVIS: &str = include_str!("../templates/travis.yml");
