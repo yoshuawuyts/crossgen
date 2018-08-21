@@ -1,6 +1,6 @@
 # This script takes care of building the crate and packaging it for release.
 
-PKG_NAME="{PKG_NAME}"
+PKG_NAME="{{PKG_NAME}}"
 
 set -ex
 
