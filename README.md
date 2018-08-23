@@ -32,7 +32,7 @@ ARGS:
 
 ## Installation
 ```sh
-$ cargo add crossgen
+$ cargo install crossgen
 ```
 
 ## License
