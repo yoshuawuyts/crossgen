@@ -10,15 +10,15 @@ env:
 
 matrix:
   include:
-    - env: TARGET=armv7-unknown-linux-gnueabihf
-      rust: nightly
     - env: TARGET=x86_64-unknown-linux-musl
       rust: nightly
     - env: TARGET=x86_64-apple-darwin
       rust: nightly
       os: osx
+    - env: TARGET=armv7-unknown-linux-gnueabihf DISABLE_TESTS=1
+      rust: stable
     - env: TARGET=x86_64-unknown-freebsd DISABLE_TESTS=1
-      rust: nightly
+      rust: stable
 
 before_install:
   - set -e
@@ -41,7 +41,7 @@ deploy:
   file_glob: true
   file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   api_key:
-    secure: "{{TOKEN}}"
+    secure: "5c1487e6a44903bb298753bf59737ac6612c9a30"
   on:
     tags: true
 

@@ -28,6 +28,12 @@ pub enum ErrorKind {
   /// Any error not part of this list.
   #[fail(display = "Generic error.")]
   Other,
+  /// An error caused by Travis
+  #[fail(display = "Travis error.")]
+  Travis,
+  /// An error caused by GitHub
+  #[fail(display = "GitHub error.")]
+  GitHub,
   /// An error caused by an IO failure.
   #[fail(display = "{}", _0)]
   Io(#[cause] io::Error),
