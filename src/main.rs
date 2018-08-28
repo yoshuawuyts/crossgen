@@ -20,7 +20,8 @@ fn main() -> Result<(), ExitFailure> {
   args.log(env!("CARGO_PKG_NAME"))?;
   let dir = args.dir()?;
   let name = args.name()?;
-  let templ = crossgen::Templates::new(dir, name)?;
+  let token = crossgen::authenticate(env!("CARGO_PKG_NAME"))?;
+  let templ = crossgen::Templates::new(dir, name, token)?;
   templ.write_all()?;
   Ok(())
 }

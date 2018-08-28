@@ -16,15 +16,16 @@ static TRAVIS: &str = include_str!("../templates/travis.yml");
 pub struct Templates {
   name: String,
   dir: PathBuf,
+  token: String,
 }
 
 impl Templates {
   /// Create a new instance. Creates a `scripts/` directory if it doesn't exist
   /// already.
-  pub fn new(dir: PathBuf, name: String) -> ::Result<Self> {
+  pub fn new(dir: PathBuf, name: String, token: String) -> ::Result<Self> {
     let scripts_dir = dir.join("scripts");
     mkdirp(&scripts_dir).context(::ErrorKind::Other)?;
-    Ok(Self { name, dir })
+    Ok(Self { name, dir, token })
   }
 
   /// Write all templates.
@@ -50,7 +51,8 @@ impl Templates {
   ) -> ::Result<()> {
     let dir = issue_dir.join(file_name);
     let mut file = File::create(dir).context(::ErrorKind::Other)?;
-    let template = str::replace(template, "{{PKG_NAME}}", &self.name);
+    let template = str::replace(&template, "{{PKG_NAME}}", &self.name);
+    let template = str::replace(&template, "{{TOKEN}}", &self.token);
 
     file
       .write_all(template.as_bytes())
