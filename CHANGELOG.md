@@ -1,3 +1,21 @@
+## 2018-08-30, Version 0.3.0
+### Commits
+- [[`b3e20f2a93`](https://github.com/yoshuawuyts/crossgen/commit/b3e20f2a93c903e051bbaa10cab4d4ecbcbaca2d)] (cargo-release) version 0.3.0 (Yoshua Wuyts)
+- [[`f595065e75`](https://github.com/yoshuawuyts/crossgen/commit/f595065e75e421d1faf606cb5a29356cd1a29882)] fix github token creation (Yoshua Wuyts)
+- [[`bfc40598b3`](https://github.com/yoshuawuyts/crossgen/commit/bfc40598b3f979e6c0511b1d28b9cb975f7e6c8c)] update changelog (Yoshua Wuyts)
+
+### Stats
+```diff
+ .travis.yml         |  2 +-
+ CHANGELOG.md        | 23 +++++++++++++++++++++++
+ Cargo.toml          |  6 +++---
+ scripts/install.sh  |  4 ----
+ src/github.rs       |  6 ++++--
+ templates/script.sh |  2 +-
+ 6 files changed, 32 insertions(+), 11 deletions(-)
+```
+
+
 ## 2018-08-28, Version 0.2.0
 ### Commits
 - [[`5066d267d7`](https://github.com/yoshuawuyts/crossgen/commits/5066d267d70836d5652e9ee3b8eabc476ef05896)] (cargo-release) version 0.2.0 (Yoshua Wuyts)
