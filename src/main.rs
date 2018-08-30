@@ -33,8 +33,8 @@ fn main() -> Result<(), ExitFailure> {
     .expect("No repository found in Cargo.toml");
 
   let parts: Vec<&str> = repo.split("/").collect();
-  let username = parts[3];
-  let project = parts[4];
+  let username = parts.get(3).expect("Could not access the username portion of the repository field from Cargo.toml");
+  let project = parts.get(4).expect("Could not access the project name portion of the repository field from Cargo.toml");
 
   let token = crossgen::authenticate(env!("CARGO_PKG_NAME"))?;
   let token = crossgen::encrypt(username, project, &token)?;
