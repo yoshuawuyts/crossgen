@@ -41,7 +41,7 @@ deploy:
   file_glob: true
   file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   api_key:
-    secure: "5c1487e6a44903bb298753bf59737ac6612c9a30"
+    secure: "6076c67d802d024d43af4b9be4878d17bd6a8810"
   on:
     tags: true
 

@@ -43,10 +43,6 @@ main() {
     --tag $tag \
     --target $target
 
-  if [ ! -z $DISABLE_TESTS ]; then
-      return
-  fi
-
   # Install test dependencies
   rustup component add rustfmt-preview
   rustup component add clippy-preview
