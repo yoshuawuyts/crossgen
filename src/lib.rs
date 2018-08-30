@@ -13,6 +13,7 @@ extern crate serde_derive;
 extern crate base64;
 extern crate github_auth;
 extern crate openssl;
+extern crate toml;
 
 mod cli;
 mod error;

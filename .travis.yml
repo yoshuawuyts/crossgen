@@ -10,15 +10,15 @@ env:
 
 matrix:
   include:
+    - env: TARGET=armv7-unknown-linux-gnueabihf
+      rust: nightly
     - env: TARGET=x86_64-unknown-linux-musl
       rust: nightly
     - env: TARGET=x86_64-apple-darwin
       rust: nightly
       os: osx
-    - env: TARGET=armv7-unknown-linux-gnueabihf DISABLE_TESTS=1
-      rust: stable
     - env: TARGET=x86_64-unknown-freebsd DISABLE_TESTS=1
-      rust: stable
+      rust: nightly
 
 before_install:
   - set -e
@@ -41,7 +41,7 @@ deploy:
   file_glob: true
   file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   api_key:
-    secure: "6076c67d802d024d43af4b9be4878d17bd6a8810"
+    secure: "T6sMb9uuAr726hXpTxFpBp6pXsL8t28ngO04FFnox4ihA/VTpBK5LUs2Z7vW8n5GYGhh0KljtW6nlK+NbDBoo+s1CJkOv6DJlgIqB84riWRFBW2pctLZb3eJE2oTMnz7OlMD4OcoIyJtACkiVBUB9FMQ5BkDibetsHpQ79eEFX8ZKgqTA29HEjw5qF3qkYiujEnxWu+e1E2/2M/VFsQ1PffEFhVxMzYu5YZ/X1NIHVuH7Dw3yfl4Ar3ApF8FO4SpYRGGmPS7m2YdB74FDg5oSM+C7hbPmC4mShRwMzZoJ+loIZBvxMocuOMmgQMfgR9cnmOYHDQjTvM3gOIL00aYwwJgueNrrKFrBVvMoJXMWndKmWJDq9+zfUFBPW3sPUXc0nPLIfPgKd8y5UaZgX82wOA8mEKa6n3uiM/c81MUZfY3HGns76WQUSE04HIfGatCc+8Rvp1E62C3p2iEO2O2AcACuA5B2jy6qEqtuS7YIYPpiqDPto+p79DndHdGVPhGoZjZCp/tae+YNibL4fOZj3Gvau0+pmtpDVCwUcLmm2MszBzynfQi9DKr8leshifpwgadlkmBzMpVp+4Qg95QW0uhRtRbFlcD3dOEHROqFZVJbZ0pgUveiNMIsLwcu0BUQUJNA4qACTMZQE/UdtAVABkKIhRSKJ2jlUdH62BGp9A="
   on:
     tags: true
 

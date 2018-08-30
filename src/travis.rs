@@ -4,24 +4,10 @@ use reqwest;
 use failure::ResultExt;
 use openssl::rsa::{Padding, Rsa};
 
-/// Travis
+/// Private travis key representation.
 #[derive(Debug, Clone, Deserialize)]
 struct TravisKey {
   key: String,
-}
-
-pub fn travis_url() {}
-
-/// Get the public key for a repo from Travis.
-fn get_travis_key(username: &str, repo: &str) -> ::Result<String> {
-  let url =
-    format!("https://api.travis-ci.org/repos/{}/{}/key", username, repo);
-  info!("GET {}", &url);
-  let key: TravisKey = reqwest::get(&url)
-    .context(::ErrorKind::Travis)?
-    .json()
-    .context(::ErrorKind::Travis)?;
-  Ok(key.key)
 }
 
 /// Encrypt a travis key.
@@ -37,4 +23,16 @@ pub fn encrypt(username: &str, repo: &str, data: &str) -> ::Result<String> {
     .context(::ErrorKind::Travis)?;
 
   Ok(base64::encode(&res))
+}
+
+/// Get the public key for a repo from Travis.
+fn get_travis_key(username: &str, repo: &str) -> ::Result<String> {
+  let url =
+    format!("https://api.travis-ci.org/repos/{}/{}/key", username, repo);
+  info!("GET {}", &url);
+  let key: TravisKey = reqwest::get(&url)
+    .context(::ErrorKind::Travis)?
+    .json()
+    .context(::ErrorKind::Travis)?;
+  Ok(key.key)
 }

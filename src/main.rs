@@ -5,13 +5,17 @@
 
 #[macro_use]
 extern crate human_panic;
+extern crate cargo_toml;
 extern crate crossgen;
 extern crate exitfailure;
 extern crate log;
+extern crate serde;
 extern crate structopt;
 
+use cargo_toml::TomlManifest;
 use crossgen::Cli;
 use exitfailure::ExitFailure;
+use std::fs::read;
 use structopt::StructOpt;
 
 fn main() -> Result<(), ExitFailure> {
@@ -22,7 +26,18 @@ fn main() -> Result<(), ExitFailure> {
   let dir = args.dir()?;
   let name = args.name()?;
 
+  let manifest = TomlManifest::from_slice(&read("Cargo.toml")?)?;
+  let repo = manifest
+    .package
+    .repository
+    .expect("No repository found in Cargo.toml");
+
+  let parts: Vec<&str> = repo.split("/").collect();
+  let username = parts[3];
+  let project = parts[4];
+
   let token = crossgen::authenticate(env!("CARGO_PKG_NAME"))?;
+  let token = crossgen::encrypt(username, project, &token)?;
   let templ = crossgen::Templates::new(dir, name, token)?;
   templ.write_all()?;
 
