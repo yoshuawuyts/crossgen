@@ -51,14 +51,17 @@ impl Cli {
   /// Access the directory name.
   #[inline]
   pub fn name(&self) -> ::Result<String> {
-    match &self.name {
-      Some(name) => Ok(name.to_string()),
-      None => {
-        let dir = self.dir().context(::ErrorKind::Other)?;
-        let dir = dir.iter().last().ok_or_else(|| ::ErrorKind::Other)?;
-        let dir = dir.to_str().ok_or_else(|| ::ErrorKind::Other)?;
-        Ok(dir.to_string())
-      }
+    if let Some(name) = &self.name {
+      Ok(name.clone())
+    } else {
+      self.name_from_dir()
     }
+  }
+
+  fn name_from_dir(&self) -> ::Result<String> {
+    let dir = self.dir().context(::ErrorKind::Other)?;
+    let dir = dir.iter().last().ok_or_else(|| ::ErrorKind::Other)?;
+    let dir = dir.to_str().ok_or_else(|| ::ErrorKind::Other)?;
+    Ok(dir.to_string())
   }
 }
