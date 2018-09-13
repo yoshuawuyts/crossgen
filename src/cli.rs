@@ -18,6 +18,9 @@ pub struct Cli {
   /// Project name. Defaults to target directory name
   #[structopt(short = "n", long = "name")]
   name: Option<String>,
+  /// Specify if a library template should be generated
+  #[structopt(short = "l", long = "lib")]
+  lib: Option<bool>,
   /// Target directory
   #[structopt(default_value = ".")]
   dir: String,
@@ -55,6 +58,16 @@ impl Cli {
       Ok(name.clone())
     } else {
       self.name_from_dir()
+    }
+  }
+
+  /// Access the lib flag.
+  #[inline]
+  pub fn lib(&self) -> ::Result<bool> {
+    if let Some(lib) = &self.lib {
+      Ok(lib.clone())
+    } else {
+      Err(::ErrorKind::Other)?
     }
   }
 
