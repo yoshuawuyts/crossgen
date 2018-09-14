@@ -25,7 +25,7 @@ fn main() -> Result<(), ExitFailure> {
 
   let dir = args.dir()?;
   let name = args.name()?;
-  let lib = args.lib().unwrap_or(false);
+  let lib = args.lib();
 
   let manifest = TomlManifest::from_slice(&read("Cargo.toml")?)?;
   let repo = manifest
