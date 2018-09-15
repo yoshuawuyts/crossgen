@@ -5,13 +5,15 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::PathBuf;
 
-static BIN_DEPLOY_PS1: &str = include_str!("../templates/bin/before_deploy.ps1");
+static BIN_DEPLOY_PS1: &str =
+  include_str!("../templates/bin/before_deploy.ps1");
 static BIN_DEPLOY_SH: &str = include_str!("../templates/bin/before_deploy.sh");
 static BIN_INSTALL: &str = include_str!("../templates/bin/install.sh");
 static BIN_SCRIPT: &str = include_str!("../templates/bin/script.sh");
 static BIN_TRAVIS: &str = include_str!("../templates/bin/travis.yml");
 
-static LIB_DEPLOY_PS1: &str = include_str!("../templates/lib/before_deploy.ps1");
+static LIB_DEPLOY_PS1: &str =
+  include_str!("../templates/lib/before_deploy.ps1");
 static LIB_DEPLOY_SH: &str = include_str!("../templates/lib/before_deploy.sh");
 static LIB_INSTALL: &str = include_str!("../templates/lib/install.sh");
 static LIB_SCRIPT: &str = include_str!("../templates/lib/script.sh");
