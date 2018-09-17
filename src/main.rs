@@ -25,6 +25,7 @@ fn main() -> Result<(), ExitFailure> {
 
   let dir = args.dir()?;
   let name = args.name()?;
+  let lib = args.lib();
 
   let manifest = TomlManifest::from_slice(&read("Cargo.toml")?)?;
   let repo = manifest
@@ -38,7 +39,12 @@ fn main() -> Result<(), ExitFailure> {
 
   let token = crossgen::authenticate(env!("CARGO_PKG_NAME"))?;
   let token = crossgen::encrypt(username, project, &token)?;
-  let templ = crossgen::Templates::new(dir, name, token)?;
+  let templ = if lib {
+    crossgen::Templates::gen_lib(dir, name, token)
+  } else {
+    crossgen::Templates::gen_bin(dir, name, token)
+  }?;
+
   templ.write_all()?;
 
   Ok(())

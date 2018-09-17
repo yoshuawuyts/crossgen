@@ -18,6 +18,9 @@ pub struct Cli {
   /// Project name. Defaults to target directory name
   #[structopt(short = "n", long = "name")]
   name: Option<String>,
+  /// Specify if a library template should be generated
+  #[structopt(short = "l", long = "lib")]
+  lib: bool,
   /// Target directory
   #[structopt(default_value = ".")]
   dir: String,
@@ -56,6 +59,12 @@ impl Cli {
     } else {
       self.name_from_dir()
     }
+  }
+
+  /// Access the lib flag.
+  #[inline]
+  pub fn lib(&self) -> bool {
+    self.lib
   }
 
   fn name_from_dir(&self) -> ::Result<String> {
