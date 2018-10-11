@@ -1,3 +1,19 @@
+## 2018-10-11, Version 0.5.1
+### Commits
+- [[`6144374dd8`](https://github.com/yoshuawuyts/crossgen/commit/6144374dd8cad0bc61b807ea8a8570cab1601337)] (cargo-release) version 0.5.1 (Yoshua Wuyts)
+- [[`1ff4ac19d4`](https://github.com/yoshuawuyts/crossgen/commit/1ff4ac19d4fe883ee6603fdfc5ace6c4808ac995)] fix openssl upgrade (#20) (Yoshua Wuyts)
+- [[`c626698dab`](https://github.com/yoshuawuyts/crossgen/commit/c626698dab8e82e57da18b86033f6a45610bb700)] upgrade deps (Yoshua Wuyts)
+- [[`48fa6fca63`](https://github.com/yoshuawuyts/crossgen/commit/48fa6fca63f5662807d7c0ae8995fa8099bda3c5)] Update changelog (Yoshua Wuyts)
+
+### Stats
+```diff
+ .travis.yml  |  4 ----
+ CHANGELOG.md | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Cargo.toml   | 46 ++++++++++++++++++++++------------------------
+ 3 files changed, 82 insertions(+), 28 deletions(-)
+```
+
+
 ## 2018-09-19, Version 0.5.0
 ### Commits
 - [[`c10f6f432b`](https://github.com/yoshuawuyts/crossgen/commit/c10f6f432b1ec86085fbde79ab70315317b1d1a2)] (cargo-release) version 0.5.0 (Yoshua Wuyts)
