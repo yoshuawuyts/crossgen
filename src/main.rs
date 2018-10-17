@@ -16,6 +16,7 @@ use cargo_toml::TomlManifest;
 use crossgen::Cli;
 use exitfailure::ExitFailure;
 use std::fs::read;
+use std::path::PathBuf;
 use structopt::StructOpt;
 
 fn main() -> Result<(), ExitFailure> {
@@ -27,7 +28,7 @@ fn main() -> Result<(), ExitFailure> {
   let name = args.name()?;
   let lib = args.lib();
 
-  let manifest = TomlManifest::from_slice(&read("Cargo.toml")?)?;
+  let manifest = TomlManifest::from_slice(&read(dir.join("Cargo.toml"))?)?;
   let repo = manifest
     .package
     .repository
