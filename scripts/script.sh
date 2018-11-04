@@ -4,7 +4,7 @@ set -ex
 
 main() {
   # Use cross for linux, cargo for macOS and Windows
-  let cargo=''
+  local cargo=''
   if [ $TRAVIS_OS_NAME = linux ]; then
     cargo='cross'
   else
