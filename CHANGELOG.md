@@ -1,3 +1,25 @@
+## 2018-11-06, Version 0.6.0
+### Commits
+- [[`e3b011c249`](https://github.com/yoshuawuyts/crossgen/commit/e3b011c249fe056677d910cc6a2554106ac2b7d3)] (cargo-release) version 0.6.0 (Yoshua Wuyts)
+- [[`d7ae39d7b2`](https://github.com/yoshuawuyts/crossgen/commit/d7ae39d7b28592e066611d5dd87cc6b10493e9d1)] Windows support (Travis CI) (#21) (Dan Reeves)
+- [[`8532f8362e`](https://github.com/yoshuawuyts/crossgen/commit/8532f8362ed3d2e24a4ec0bb752958686ab01ff0)] Read Cargo.toml from target dir (#18) (Bruno Tavares)
+- [[`566b811407`](https://github.com/yoshuawuyts/crossgen/commit/566b811407ef06d80a770e332b9080e7aa2c64e5)] Update changelog (Yoshua Wuyts)
+
+### Stats
+```diff
+ CHANGELOG.md             | 16 ++++++++++++++++
+ Cargo.toml               |  2 +-
+ src/main.rs              |  3 ++-
+ templates/bin/install.sh | 16 ++++------------
+ templates/bin/script.sh  | 20 ++++++++++++++------
+ templates/bin/travis.yml |  3 +++
+ templates/lib/install.sh | 16 ++++------------
+ templates/lib/script.sh  | 20 ++++++++++++++------
+ templates/lib/travis.yml |  3 +++
+ 9 files changed, 61 insertions(+), 38 deletions(-)
+```
+
+
 ## 2018-10-11, Version 0.5.1
 ### Commits
 - [[`6144374dd8`](https://github.com/yoshuawuyts/crossgen/commit/6144374dd8cad0bc61b807ea8a8570cab1601337)] (cargo-release) version 0.5.1 (Yoshua Wuyts)
