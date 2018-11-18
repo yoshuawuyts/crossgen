@@ -5,9 +5,7 @@ PKG_NAME="{{PKG_NAME}}"
 set -ex
 
 main() {
-  local src=$(pwd) \
-  stage \
-  linking_args
+  local src=$(pwd) stage
 
   case $TRAVIS_OS_NAME in
   linux)
@@ -20,17 +18,13 @@ main() {
 
   test -f Cargo.lock || cargo generate-lockfile
 
-  # TODO: combine with -C lto
-  case $TYPE in
-  static)
-    linking_args="--crate-type staticlib"
-    ;;
-  *)
-    linking_args="--crate-type cdylib"
-    ;;
-  esac
+  if [[ "$TYPE" == "static" ]]; then
+    cargo crate-type static
+  else
+    cargo crate-type dynamic
+  fi
 
-  cross rustc --lib --target $TARGET --release -- $linking_args
+  cross rustc --lib --target $TARGET --release -- -C lto
 
   case $TYPE-$TRAVIS_OS_NAME in
   static-*)

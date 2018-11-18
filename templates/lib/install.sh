@@ -46,6 +46,9 @@ main() {
   # Install test dependencies
   rustup component add rustfmt-preview
   rustup component add clippy-preview
+
+  # For defining the type of lib to produce: dynamic OR static
+  cargo install --force cargo-crate-type
 }
 
 main
